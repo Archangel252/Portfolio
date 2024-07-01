@@ -3,7 +3,7 @@ nav{
     width: 80vw;
     height: 15vh;
     place-items: center;
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr;
     padding-right: 10vw;
     padding-left: 10vw;
     background-color: black;

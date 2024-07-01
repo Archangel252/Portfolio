@@ -31,25 +31,6 @@ body {
     grid-gap: 5vw; 
     overflow-y: hidden; 
 }
-@media screen and (max-width: 650px){
-    .personal-content{
-        max-height: 50vh;
-        width: 60vw;
-        height: 50vh;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
-        place-items: center;
-        grid-gap: 5vw; 
-        overflow-y: visible;
-    }
-    .profile-txt > p{
-        height: 100%;
-        text-align: justify;
-        overflow-y: visible;
-    }
-    
-}
 .profile-txt > p{
     height: 100%;
     max-height: 50vh;
@@ -113,28 +94,5 @@ body {
     background-size: cover;
     background-position: center;
 }
-/*Feedback Button CSS*/
+/*RESUME PAGE CSS*/
 /*----------------------------------------*/
-#feedback{
-    z-index: 10;
-    transform: rotate(-90deg);
-    right: 0;
-    top: 50%;
-    position: fixed;
-}
-.popup{
-    background-color: grey;
-    display: none;
-    grid-template-rows: 1fr 1fr 2fr 1fr;
-    position: fixed;
-    right: 25vw;
-    top: 25vh;
-    padding: 10%;
-}
-.popup input{
-    padding: 5%;
-}
-.popup button{
-    padding: 5%;
-}
-

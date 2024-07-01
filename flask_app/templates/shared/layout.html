@@ -24,60 +24,16 @@
 
     <!-- The navigation bar -->
     <nav><!-- navbar -->
-      {% if user == 'Unknown' %}
-      <p>CSE 477 Homework 3</p>
-      {% else %}
-      <p>Welcome {{user}}</p>
-      {% endif %}
+      <p>Welcome</p>
       <a href="/home">Home</a>
       <a href="/projects">Projects</a>
       <a href="/resume" >Resume</a>
-      <a href="/chat" >Chat</a>
-      {% if user == 'Unknown' %}
-      <a id="login" href="/login" >Login</a>
-      {% else %}
-      <a id="login" href="/logout" >Logout</a>
-      {% endif %}
       <a href="https://www.linkedin.com/in/aiden-dixon/"><img src="static\main\images\social-linkedin.png" alt="linkedin" loading="lazy" id="linkedin-img">
       </a>
-      <a href="#" class="menu-bar-link">
-          <img src="static\main\images\menu-bar.png" alt="menu-bar" loading="lazy" id="menu-bar">
-      </a>
-      <ul class="dropdown">
-          <li class="drop">
-              <a href="/home">Home</a>
-          </li>
-          <li class="drop">
-              <a href="/projects">Projects</a>
-          </li>
-          <li class="drop">
-              <a href="/resume" >Resume</a>
-          </li >
-          <li class="drop">
-            <a href="/chat" >Chat</a>
-          </li >
-          <li class="drop">
-            {% if user == 'Unknown' %}
-            <a id="login" href="/login" >Login</a>
-            {% else %}
-            <a id="login" href="/logout" >Logout</a>
-            {% endif %}
-          </li >
-          <li class="drop">
-              <a href="https://www.linkedin.com/in/aiden-dixon/" target="blank">Linkedin</a>
-          </li>
-      </ul>
   </nav>
   
     <!-- The main content  -->
     <main>
-      <button id="feedback">Feedback</button>
-        <form  class="popup" action="/feedback" method="post">
-        <input type="text" id="name" name="name" placeholder="Enter Name">
-        <input type="text" id="email" name="email" placeholder="Enter Email">
-        <textarea type="text" id="comment" name="comment" placeholder="Enter Feedback"></textarea>
-        <input id="send" type="submit" value="send">
-      </form>
       {% block maincontent %}{% endblock %}
     </main>
 
