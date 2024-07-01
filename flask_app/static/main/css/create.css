@@ -1,0 +1,12 @@
+.inputs{
+    display: grid;
+    place-items: center;
+    margin-top: 20%;
+    grid-template-rows: 1fr;
+}
+.members{
+    display: grid;
+}
+.name{
+    align-items: center;
+}

@@ -1,0 +1,21 @@
+.content
+{
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr 1fr 2fr;
+    justify-content: center; 
+    padding-left: 20%;
+    padding-right: 20%;
+    align-items: center;
+}
+h1
+{
+    text-align: center;
+}
+.inputs
+{
+    display:grid;
+    grid-template-rows: 1fr 1fr;
+    padding-left: 20%;
+    padding-right: 20%;
+}

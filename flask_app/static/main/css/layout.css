@@ -1,0 +1,19 @@
+body {
+    overflow-x: hidden;
+    padding: 0px;
+    margin: 0px;
+    width: 100vw;
+    height: 100vh;
+}
+.main-content{
+    padding-right: 10vw;
+    padding-left: 10vw;
+    padding-top: 10vh;
+    display: grid;
+    gap: 10vh;
+    place-items: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: 80vw;
+    
+}

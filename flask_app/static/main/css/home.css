@@ -1,0 +1,21 @@
+.main{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+#board-name
+{
+    text-align: center;
+}
+.lists{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 3fr 1fr;
+    gap: 10px; 
+}
+.list{
+    border: 1px solid black;
+}
+.card{
+    border: 1px solid black;
+    margin: 3%;
+}

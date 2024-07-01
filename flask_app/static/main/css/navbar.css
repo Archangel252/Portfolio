@@ -1,0 +1,49 @@
+nav{
+    display: grid;
+    width: 80vw;
+    height: 15vh;
+    place-items: center;
+    grid-template-columns: 2fr 4fr 1fr 1fr 1fr 1fr ;
+    padding-right: 10vw;
+    padding-left: 10vw;
+    background-color: black;
+    color:white;    
+}
+nav a{
+    color:white;    
+    text-decoration: none; /*removes hyperlink look*/
+}
+nav a:hover{
+    opacity: 0.5;
+}
+#linkedin-img{
+    height: 7vh;
+    width: auto;
+}
+.menu-bar-link{
+    display: none;
+}
+.dropdown{
+    padding: 0px;
+    margin: 0px;
+    background-color: gray;
+    width: 100vw;
+    height: 100vh;
+    max-height: 80vh;
+    z-index: 1;
+    display: none;
+    position: relative;
+    transition: max-height 1s ease;
+}
+.drop{
+    display: block;
+    z-index: 2;
+}
+
+#menu-bar{
+    z-index: 3;
+    display: none;
+    height: 7vh;
+    width: auto;
+}
+
