@@ -1,0 +1,7 @@
+"position_id","inst_id","title","responsibilities","start_date","end_date"
+"1","1","Back-end Engineer","Created API endpoints allowing for users to retreive profile specific information from a PostgreSQL database","2024-03-01",NULL
+"2","1","Database Engineer","Led the design and implementation of various database tables and robust row-level security mechanisms for a collaborative study tool","2024-01-01","2024-03-01"
+"3","2","Software Engineering Intern","INCOMING 05-2024","2024-05-01","2024-05-01"
+"4","2","Product Management Intern","Led a database cleaning operation on a database containing 270,000 records","2023-05-01","2023-08-31"
+"5","3","Teaching Assistant","Teaching Assistant for CSE 335","2023-01-01",NULL
+"6","3","Student","Pursuing a Bachelor'''s degree in Computer Science","2021-08-31","2024-12-31"

@@ -1,0 +1,140 @@
+body {
+    overflow-x: hidden;
+    padding: 0px;
+    margin: 0px;
+    width: 100vw;
+    height: 100vh;
+}
+/*MAIN PAGE CSS*/
+/*----------------------------------------*/
+.main-content{
+    padding-right: 10vw;
+    padding-left: 10vw;
+    padding-top: 10vh;
+    display: grid;
+    gap: 10vh;
+    place-items: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: 80vw;
+    
+}
+.personal-content{
+    max-height: 50vh;
+    max-width: 80vw;
+    width: 60vw;
+    height: 50vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    place-items: center;
+    grid-gap: 5vw; 
+    overflow-y: hidden; 
+}
+@media screen and (max-width: 650px){
+    .personal-content{
+        max-height: 50vh;
+        width: 60vw;
+        height: 50vh;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        place-items: center;
+        grid-gap: 5vw; 
+        overflow-y: visible;
+    }
+    .profile-txt > p{
+        height: 100%;
+        text-align: justify;
+        overflow-y: visible;
+    }
+    
+}
+.profile-txt > p{
+    height: 100%;
+    max-height: 50vh;
+    text-align: justify;
+    overflow-y: auto;
+}
+.fact-content{
+    max-height: 50vh;
+    width: 60vw;
+    height: 50vh;
+    display: grid;
+    text-align: justify;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    place-items: center;
+}
+.profile-img{
+    min-height: 25vh;
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/aiden-profile-pic.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; 
+}
+/*PROJECT PAGE CSS*/
+/*----------------------------------------*/
+.project-page-content{
+    padding-right: 10vw;
+    padding-left: 10vw;
+    padding-top: 10vh;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: 80vw;
+}
+.title-content{
+    width: 60vw;
+    height: 50vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    place-items: center;
+}
+.project-content{
+    width: 60vw;
+    height: 50vh;
+    display: grid;
+    grid-gap: 5vw;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    place-items: center;
+}
+.piano-img{
+    width: 100%;
+    height: 100%;
+    border: 2px solid black;
+    background-image: url(../images/piano.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+/*Feedback Button CSS*/
+/*----------------------------------------*/
+#feedback{
+    z-index: 10;
+    transform: rotate(-90deg);
+    right: 0;
+    top: 50%;
+    position: fixed;
+}
+.popup{
+    background-color: grey;
+    display: none;
+    grid-template-rows: 1fr 1fr 2fr 1fr;
+    position: fixed;
+    right: 25vw;
+    top: 25vh;
+    padding: 10%;
+}
+.popup input{
+    padding: 5%;
+}
+.popup button{
+    padding: 5%;
+}
+

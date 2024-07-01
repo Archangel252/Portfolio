@@ -4,11 +4,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kanban</title>
+  <title>Aiden Dixon's webpage</title>
+  <link rel="stylesheet"    href="{{ url_for('static', filename='main/css/main.css') }}">
+  <link rel="stylesheet"    href="{{ url_for('static', filename='main/css/header.css') }}">
+  <link rel="stylesheet"    href="{{ url_for('static', filename='main/css/footer.css') }}">
   <link rel="stylesheet"    href="{{ url_for('static', filename='main/css/navbar.css') }}">
-  <link rel="stylesheet"    href="{{ url_for('static', filename='main/css/layout.css') }}">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='main/images/favicon.ico') }}">
   {% block extracss %}{% endblock %}
-
+  <script src="{{ url_for('static', filename='main/js/main.js') }}" defer></script>
   {% block extrajs %}{% endblock %}
 </head>
 
@@ -16,21 +19,77 @@
     <article>
     <!-- The header  -->
     <header>
-     
+      <div class="header-img"></div>
     </header>
+
     <!-- The navigation bar -->
     <nav><!-- navbar -->
+      {% if user == 'Unknown' %}
+      <p>CSE 477 Homework 3</p>
+      {% else %}
       <p>Welcome {{user}}</p>
-      <a href="/logout">KANBAN</a>
-      <a href="/boards">Boards</a>
-      <a id="login" href="/logout" >Logout</a>      
+      {% endif %}
+      <a href="/home">Home</a>
+      <a href="/projects">Projects</a>
+      <a href="/resume" >Resume</a>
+      <a href="/chat" >Chat</a>
+      {% if user == 'Unknown' %}
+      <a id="login" href="/login" >Login</a>
+      {% else %}
+      <a id="login" href="/logout" >Logout</a>
+      {% endif %}
+      <a href="https://www.linkedin.com/in/aiden-dixon/"><img src="static\main\images\social-linkedin.png" alt="linkedin" loading="lazy" id="linkedin-img">
+      </a>
+      <a href="#" class="menu-bar-link">
+          <img src="static\main\images\menu-bar.png" alt="menu-bar" loading="lazy" id="menu-bar">
+      </a>
+      <ul class="dropdown">
+          <li class="drop">
+              <a href="/home">Home</a>
+          </li>
+          <li class="drop">
+              <a href="/projects">Projects</a>
+          </li>
+          <li class="drop">
+              <a href="/resume" >Resume</a>
+          </li >
+          <li class="drop">
+            <a href="/chat" >Chat</a>
+          </li >
+          <li class="drop">
+            {% if user == 'Unknown' %}
+            <a id="login" href="/login" >Login</a>
+            {% else %}
+            <a id="login" href="/logout" >Logout</a>
+            {% endif %}
+          </li >
+          <li class="drop">
+              <a href="https://www.linkedin.com/in/aiden-dixon/" target="blank">Linkedin</a>
+          </li>
+      </ul>
   </nav>
-   
-    </article>
+  
     <!-- The main content  -->
-    {% block maincontent %}{% endblock %}
+    <main>
+      <button id="feedback">Feedback</button>
+        <form  class="popup" action="/feedback" method="post">
+        <input type="text" id="name" name="name" placeholder="Enter Name">
+        <input type="text" id="email" name="email" placeholder="Enter Email">
+        <textarea type="text" id="comment" name="comment" placeholder="Enter Feedback"></textarea>
+        <input id="send" type="submit" value="send">
+      </form>
+      {% block maincontent %}{% endblock %}
+    </main>
+
+    <!-- The footer of the file -->
+    <footer>
+      <p  class="footer-tag">&copy; 2024 Aiden Dixon </p>
+    </footer>
+
+    </article>
   
 </body>
+
 </html>
 
 

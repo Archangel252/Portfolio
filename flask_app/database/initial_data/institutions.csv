@@ -1,0 +1,4 @@
+"inst_id","type","name","department","address","city","state","zip"
+"1","Software","LilyPad","Backend and Database",NULL,"East Lansing","Michigan",NULL
+"2","Automotive","General Motors","Software",NULL,"Warren","Michigan","48808"
+"3","Academia","Michigan State University","Computer Science",NULL,"East Lansing","Michigan",NULL

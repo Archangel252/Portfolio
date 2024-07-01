@@ -31,11 +31,9 @@ def create_app(debug=False):
 	
 	# NEW IN HOMEWORK 3 ----------------------------
 	# This will create a user
-	db.createUser(email='owner@email.com' ,password='password', role='guest')
+	db.createUser(email='owner@email.com' ,password='password', role='owner')
 	db.createUser(email='guest@email.com' ,password='password', role='guest')
 	# ----------------------------------------------
-	db.createBoard(1,'test')
-
 
 	socketio.init_app(app)
 

@@ -1,0 +1,50 @@
+{% extends 'shared/layout.html' %}
+
+{% block extracss %}
+<link rel="stylesheet"    href="{{ url_for('static', filename='main/css/resume.css') }}">
+{% endblock %}
+
+{% block maincontent %}
+      <div class="resume-content">
+      <!-- For each institution - generate a row --> 
+      {% for inst_id, inst in resume_data.items() %}
+      <!-- Do something... -->
+      <div class="inst-location">
+        <strong><h1>{{ inst['name']}} </h1></strong>
+        <p class="right-aligned">{{ inst['city']}}, {{ inst['state']}} </p>
+      </div>
+      
+        {% if inst['positions'] != {} %}
+          {% for pos_id, pos in inst['positions'].items() %}
+          <!-- Do something else... -->
+          <div class="inst-location">
+            <h3>{{ pos['title']}} </h3>
+            <p class="right-aligned">{{pos['start_date']}} - {% if pos['end_date'] != None %}
+              {{pos['end_date']}}
+          {% else %}
+             present
+          {% endif %}</p>
+          </div>
+          <p class="responsibilities">{{pos['responsibilities']}}</p>
+          {% for experience_id, exp in pos['experiences'].items() %}
+          <ul>
+          <li><p class="exp"> <a href="{{exp['hyperlink']}}" target="blank">{{exp['name']}}</a>: {{exp['description']}}</p>
+            
+            <div class="skills"><i><p>skills used:{% for skill_id, skill in exp['skills'].items() %} {{skill['name']}}{% if not loop.last %},{% endif %}{% endfor %}</p></i></div>
+            
+          </li>
+          </ul>
+          {% endfor %}
+          {% endfor %}
+        {% endif %}
+
+      <hr>
+      {% endfor %}
+    </div>
+
+
+
+
+{% endblock %}
+
+

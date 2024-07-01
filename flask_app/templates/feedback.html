@@ -1,0 +1,10 @@
+{% extends 'shared/layout.html' %}
+
+{% block maincontent %}
+<h2> Thanks for your feedback, Here's what others had to say: </h2>
+<ul>
+    {% for type, values in total_feedback.items() %}
+    <li>{{values['name']}}@({{values['email']}}) said: {{values['comment']}}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

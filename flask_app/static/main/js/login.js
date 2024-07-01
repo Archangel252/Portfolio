@@ -16,7 +16,7 @@ function checkCredentials() {
               if (retruned_data['success'] == 1)
               {
                 // travel to home page
-                window.location.href = "/popup";
+                window.location.href = "/home";
               }else
               {
                 // increment count
@@ -27,32 +27,4 @@ function checkCredentials() {
               
             }        
     });
-}
-
-function createUser() 
-{
-  const email = document.getElementById("loginEmail").value;
-  const password = document.getElementById("loginPassword").value;
-  var data_d = {'email': email, 'password': password}
-  console.log('data_d', data_d)
-
-  // SEND DATA TO SERVER VIA jQuery.ajax({})
-  jQuery.ajax({
-    url: "/processsignup",
-    data: data_d,
-    type: "POST",
-    success:function(retruned_data){
-          retruned_data = JSON.parse(retruned_data);
-          if (retruned_data['success'] == 1)
-          {
-            // travel to home page
-            window.location.href = "/login";
-          }else
-          {
-        
-          document.getElementById("count").textContent = 'Email already has an account';
-          }
-          
-        }        
-});
 }

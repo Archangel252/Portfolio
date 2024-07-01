@@ -1,0 +1,28 @@
+.resume-content{
+    padding-left: 15vw;
+    padding-right: 15vw;
+}
+.inst-location{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.right-aligned{
+    text-align: right;
+}
+.responsibilities{
+    margin: 0;
+}
+h3 {
+    margin-bottom: 0;
+}
+.skills{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    margin: 0;
+}
+.skills p{
+    margin: 0;
+}
+.exp{
+    margin-bottom: 0;
+}

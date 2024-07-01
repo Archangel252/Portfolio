@@ -1,0 +1,10 @@
+footer{
+    background-color: gray;
+    height: 15vh;
+    width: 100vw;
+    display: grid;
+    place-items: center;
+}
+.footer-tag{
+    margin: 0px;
+}

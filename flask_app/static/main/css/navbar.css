@@ -3,7 +3,7 @@ nav{
     width: 80vw;
     height: 15vh;
     place-items: center;
-    grid-template-columns: 2fr 4fr 1fr 1fr 1fr 1fr ;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     padding-right: 10vw;
     padding-left: 10vw;
     background-color: black;
@@ -46,4 +46,36 @@ nav a:hover{
     height: 7vh;
     width: auto;
 }
-
+@media screen and (max-width: 650px){
+    nav{
+        display: grid;
+        width: 80vw;
+        height: 15vh;
+        place-items: center;
+        grid-template-columns: 2fr 1fr ;
+        padding-right: 10vw;
+        padding-left: 10vw;
+        background-color: black;
+        color:white;    
+    }
+    nav a{
+        display: none;
+    }
+    .menu-bar-link{
+        display: block;
+        height: 7vh;
+        width: auto;
+    }
+    #menu-bar{
+        z-index: 3;
+        display: block;
+        height: 7vh;
+        width: auto;
+    }
+    .drop a{
+        display: block;
+        z-index: 2;
+        color: white;
+    }
+    
+}

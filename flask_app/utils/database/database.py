@@ -20,7 +20,7 @@ class database:
         self.user           = 'master'
         self.port           = 3306
         self.password       = 'master'
-        self.tables         = ['users', 'boards' ,'userboards','lists','cards' ]
+        self.tables         = ['institutions', 'positions', 'experiences', 'skills','feedback', 'users']
         
         # NEW IN HW 3-----------------------------------------------------------------
         self.encryption     =  {   'oneway': {'salt' : b'averysaltysailortookalongwalkoffashortbridge',
@@ -93,8 +93,6 @@ class database:
             except:
                 print('no initial data')
 
-
-
     def insertRows(self, table='table', columns=['x','y'], parameters=[['v11','v12'],['v21','v22']]):
         
         # Check if there are multiple rows present in the parameters
@@ -110,50 +108,47 @@ class database:
             parameters = list(itertools.chain(*parameters))
         else:
             query += f"""({values}) """                      
+        
         insert_id = self.query(query,parameters)[0]['LAST_INSERT_ID()']         
         return insert_id
     
-    def getBoards(self, user):
-        board_names = []
-        user_id = self.query(f"""SELECT user_id FROM `users` WHERE email = \'{user}\'""")
-        temp = user_id[0]['user_id']
-        board_ids = self.query(f"""SELECT board_id FROM `userboards` WHERE user_id = \'{temp}\'""")
-        for board in board_ids:
-            id = board['board_id']
-            board_name = self.query(f"""SELECT name FROM `boards` WHERE board_id = \'{id}\'""")
-            board_names.append([id,board_name[0]['name']])
-        return board_names
-
-    def get_board(self, id):
+    def GetFeedback(self):
+        feedback = self.query("""SELECT * FROM `feedback`""")
+        total = {}
+        for i in range(len(feedback)):
+            total[i] = feedback[i]
+        return total
+    
+    def getResumeData(self):
         # Pulls data from the database to genereate data like this:
         #print("yo")
-        board = {}
-        boards = self.query(f"""SELECT * FROM `boards` WHERE board_id = {id}""")
-        lists = self.query(f"""SELECT * FROM `lists` WHERE board_id = {id} """)
-        cards = self.query(f"""SELECT * FROM `cards` WHERE board_id = {id}""")
-        print(board)
-        print(lists)
-        print(cards)
+        resume = {}
+        institutions = self.query("""SELECT * FROM `institutions`""")
+        positions = self.query("""SELECT * FROM `positions`""")
+        experiences = self.query("""SELECT * FROM `experiences`""")
+        skills = self.query("""SELECT * FROM `skills`""")
+        count = 1
+        for i in range(len(institutions)):
+            institutions[i]['positions'] = {}
+            for j in range(len(positions)):
+                if positions[j]['inst_id'] == institutions[i]['inst_id']:
+                    institutions[i]['positions'][positions[j]['position_id']] = positions[j]
+                    institutions[i]['positions'][positions[j]['position_id']]['experiences'] = {}
+                    for k in range(len(experiences)):
+                        if institutions[i]['positions'][positions[j]['position_id']]['position_id'] == experiences[k]['position_id']:
+                            institutions[i]['positions'][positions[j]['position_id']]['experiences'][experiences[k]['experience_id']] = experiences[k]
+                            institutions[i]['positions'][positions[j]['position_id']]['experiences'][experiences[k]['experience_id']]['skills'] = {}
+                            for l in range(len(skills)):
+                                if institutions[i]['positions'][positions[j]['position_id']]['experiences'][experiences[k]['experience_id']]['experience_id'] == skills[l]['experience_id']:
+                                    institutions[i]['positions'][positions[j]['position_id']]['experiences'][experiences[k]['experience_id']]['skills'][skills[l]['skill_id']] = skills[l]
 
-        for i in range(len(boards)):
-            board[boards[0]['name']] = {}
-            for j in range(len(lists)):
-                board[boards[0]['name']][lists[j]['list_id']] = lists[j]
-                board[boards[0]['name']][lists[j]['list_id']]['cards'] = {}
-                for k in range(len(cards)):
-                    board[boards[0]['name']][lists[j]['list_id']]['cards'][cards[k]['card_id']] = cards[k]
-        
-        return board
-    
-    def get_user_id(self,email):
-        res = self.query(f"""SELECT user_id FROM `users` WHERE email = \'{email}\'""")
-        id = res[0]['user_id']
-        if id:
-            return id
-        else:
-            return 0 
 
-    
+
+            resume[i+1] = institutions[i]
+            count += 1
+        #print(resume)
+        return resume  
+
 #######################################################################################
 # AUTHENTICATION RELATED
 #######################################################################################
@@ -178,54 +173,6 @@ class database:
             print('Creation Failed: Bad Request')
             return {'success' : 0}
 
-    def createBoard(self, user_id, name):
-        try:
-            query = f"""
-                    SELECT name
-                    FROM `boards`
-                    WHERE name = \'{name}\';
-                    """
-            exists = self.query(query)
-            if exists:
-                print('Creation Failed: Already Exists')
-                return  {'success' : 0}
-            
-            parameters = [[name]]
-            columns = ['name']
-            board_id = self.insertRows('boards', columns, parameters)
-            self.insertRows('userboards',['board_id','user_id'], [[board_id,user_id]] )
-            l1 = self.insertRows('lists',['board_id','name'], [[board_id,'To Do']] )
-            l2 = self.insertRows('lists',['board_id','name'], [[board_id,'Doing']] )
-            l3 = self.insertRows('lists',['board_id','name'], [[board_id,'Completed']])
-            print('Creation Success')
-            return {'success': 1, 'board_id' : board_id}
-        except:
-            print('Creation Failed: Bad Request')
-            return {'success' : 0}
-        
-    def addMember(self, user_id, board_id):
-        self.insertRows('userboards',['board_id','user_id'], [[board_id,user_id]] )  
-        print("NEW CONNECTION ADDED")
-
-    def AddCard(self, board_id, list_id):
-        blank = 'click EDIT to edit'
-        c_id = self.insertRows('cards',['board_id','list_id', 'content'], [[board_id,list_id,blank]] )  
-        print("NEW CARD ADDED")
-        return c_id
-
-    def DeleteCard(self, board_id, card_id):
-        del_query = f"DELETE FROM `cards` WHERE card_id = \'{card_id}\'"
-        self.query(del_query)
-        print("CARD DELETED")
-
-    def EditCard(self,card_id, edits):
-        print("##################################")
-        edit_query = f"""UPDATE `cards`
-            SET content = \'{edits}\'
-            WHERE card_id = \'{card_id}\';"""
-        self.query(edit_query)
-        print("CARD UPDATED")
-
     def authenticate(self, email='me@email.com', password='password'):
         encrypted_pass = self.onewayEncrypt(password)
         encrypted_email = self.onewayEncrypt(email)
@@ -237,10 +184,10 @@ class database:
                     """
         exists = self.query(query)
         if exists:
-            print('Auth Success')
+            print('Login Success')
             return {'success': 1}
         else:
-            print('Auth Failed')
+            print('Login Failed')
             return {'success' : 0}
 
     def isOwner(self, email='me@email.com'):
