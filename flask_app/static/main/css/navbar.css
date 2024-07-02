@@ -1,81 +1,89 @@
-nav{
-    display: grid;
-    width: 80vw;
-    height: 15vh;
-    place-items: center;
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    padding-right: 10vw;
-    padding-left: 10vw;
+/* navbar.css */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    padding: 0 5vw; /* Adjust padding for spacing */
     background-color: black;
-    color:white;    
-}
-nav a{
-    color:white;    
-    text-decoration: none; /*removes hyperlink look*/
-}
-nav a:hover{
-    opacity: 0.5;
-}
-#linkedin-img{
-    height: 7vh;
-    width: auto;
-}
-.menu-bar-link{
-    display: none;
-}
-.dropdown{
-    padding: 0px;
-    margin: 0px;
-    background-color: gray;
-    width: 100vw;
-    height: 100vh;
-    max-height: 80vh;
-    z-index: 1;
-    display: none;
-    position: relative;
-    transition: max-height 1s ease;
-}
-.drop{
-    display: block;
-    z-index: 2;
+    color: white;
 }
 
-#menu-bar{
-    z-index: 3;
-    display: none;
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0 10px; /* Add padding for link spacing */
+}
+
+nav a:hover {
+    opacity: 0.8; /* Adjust opacity on hover */
+}
+
+.nav-profile-img {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-color: #555;
+    margin-right: 20px;
+    background-image: url(../images/profile-pic.jpg);
+    background-size: cover; 
+    background-position: center;
+}
+
+#linkedin-img {
     height: 7vh;
     width: auto;
 }
-@media screen and (max-width: 650px){
-    nav{
-        display: grid;
-        width: 80vw;
-        height: 15vh;
-        place-items: center;
-        grid-template-columns: 2fr 1fr ;
-        padding-right: 10vw;
-        padding-left: 10vw;
-        background-color: black;
-        color:white;    
+
+.menu-bar-link {
+    display: none;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: gray;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.dropdown.active {
+    max-height: 300px; /* Adjust max height as needed */
+}
+
+.menu-bar-link {
+    display: block;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
     }
-    nav a{
+
+    nav a {
+        margin: 10px 0;
+    }
+
+    .menu-bar-link {
+        display: block;
+    }
+
+    .dropdown {
+        position: static;
+        max-height: none;
+        overflow: visible;
+        background-color: transparent;
+        width: auto;
         display: none;
     }
-    .menu-bar-link{
+
+    .dropdown.active {
         display: block;
-        height: 7vh;
-        width: auto;
     }
-    #menu-bar{
-        z-index: 3;
-        display: block;
-        height: 7vh;
-        width: auto;
-    }
-    .drop a{
-        display: block;
-        z-index: 2;
-        color: white;
-    }
-    
 }

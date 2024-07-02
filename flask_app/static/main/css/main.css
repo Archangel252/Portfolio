@@ -1,98 +1,337 @@
 body {
-    overflow-x: hidden;
-    padding: 0px;
-    margin: 0px;
-    width: 100vw;
-    height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #eaeaea;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
 }
-/*MAIN PAGE CSS*/
-/*----------------------------------------*/
-.main-content{
-    padding-right: 10vw;
-    padding-left: 10vw;
-    padding-top: 10vh;
-    display: grid;
-    gap: 10vh;
-    place-items: center;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    width: 80vw;
-    
+
+.main-content {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
-.personal-content{
-    max-height: 50vh;
-    max-width: 80vw;
-    width: 60vw;
-    height: 50vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    place-items: center;
-    grid-gap: 5vw; 
-    overflow-y: hidden; 
+
+.personal-content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
 }
-.profile-txt > p{
-    height: 100%;
-    max-height: 50vh;
-    text-align: justify;
-    overflow-y: auto;
-}
-.fact-content{
-    max-height: 50vh;
-    width: 60vw;
-    height: 50vh;
-    display: grid;
-    text-align: justify;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-    place-items: center;
-}
-.profile-img{
-    min-height: 25vh;
-    width: 100%;
-    height: 100%;
-    background-image: url(../images/aiden-profile-pic.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center; 
-}
-/*PROJECT PAGE CSS*/
-/*----------------------------------------*/
-.project-page-content{
-    padding-right: 10vw;
-    padding-left: 10vw;
-    padding-top: 10vh;
-    display: grid;
-    place-items: center;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    width: 80vw;
-}
-.title-content{
-    width: 60vw;
-    height: 50vh;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-    place-items: center;
-}
-.project-content{
-    width: 60vw;
-    height: 50vh;
-    display: grid;
-    grid-gap: 5vw;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    place-items: center;
-}
-.piano-img{
-    width: 100%;
-    height: 100%;
-    border: 2px solid black;
-    background-image: url(../images/piano.jpeg);
-    background-repeat: no-repeat;
-    background-size: cover;
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #555;
+    margin-right: 20px;
+    background-image: url(../images/profile-pic.jpg);
+    background-size: cover; 
     background-position: center;
 }
-/*RESUME PAGE CSS*/
-/*----------------------------------------*/
+
+.profile-txt {
+    flex: 1;
+    min-width: 200px;
+}
+
+.profile-txt p {
+    margin: 0;
+    font-size: 16px;
+    color: #cccccc;
+}
+
+.fact-content h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #bbbbbb;
+}
+
+.timeline {
+    border-left: 2px solid #555;
+    padding-left: 20px;
+}
+
+.timeline-item {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #007bff;
+    position: absolute;
+    left: -26px;
+    top: 5px;
+}
+
+.timeline-date {
+    font-weight: bold;
+    color: #aaaaaa;
+    margin-bottom: 5px;
+}
+
+.timeline-company {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.timeline-company-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #555;
+    margin-right: 10px;
+}
+
+.timeline-company-name {
+    font-weight: bold;
+    color: #eaeaea;
+}
+
+.timeline-details {
+    background-color: #2a2a2a;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.timeline-content h3 {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+    color: #007bff;
+}
+
+.timeline-content p {
+    margin: 0;
+    font-size: 14px;
+    color: #cccccc;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        padding: 10px;
+    }
+
+    .personal-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .profile-img {
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+
+    .profile-txt {
+        text-align: center;
+    }
+
+    .timeline {
+        padding-left: 10px;
+    }
+
+    .timeline-item::before {
+        left: -16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-txt p {
+        font-size: 14px;
+    }
+
+    .fact-content h1 {
+        font-size: 20px;
+    }
+
+    .timeline-content h3 {
+        font-size: 16px;
+    }
+
+    .timeline-content p {
+        font-size: 12px;
+    }
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #eaeaea;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+}
+
+article {
+    margin: 0 auto;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #1e1e1e;
+    border-bottom: 1px solid #333;
+}
+
+nav p {
+    margin: 0;
+    color: #eaeaea;
+    font-size: 18px;
+}
+
+nav a {
+    color: #007bff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 16px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+#linkedin-img {
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+}
+
+footer {
+    text-align: center;
+    background-color: #1e1e1e;
+    border-top: 1px solid #333;
+}
+
+.footer-tag {
+    margin: 0;
+    color: #eaeaea;
+    font-size: 14px;
+}
+
+/* projects.css */
+.project-page-content {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.title-content h1 {
+    font-size: 24px;
+    color: #bbbbbb;
+}
+
+.title-content p {
+    font-size: 16px;
+    color: #cccccc;
+}
+
+.projects-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.project-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2a2a2a;
+    padding: 20px;
+    border-radius: 8px;
+    width: calc(50% - 20px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.project-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.project-description h2 {
+    font-size: 20px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.project-description p {
+    font-size: 14px;
+    color: #cccccc;
+    text-align: center;
+}
+
+.project-description a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.project-description a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .project-item {
+        width: 100%;
+    }
+}
+/* resume.css */
+.resume-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    height: 100vh;
+}
+
+.resume-iframe {
+    width: 100%;
+    height: 90%;
+    border: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .resume-content {
+        padding: 10px;
+    }
+
+    .resume-iframe {
+        height: 90vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .resume-iframe {
+        height: 80vh;
+    }
+}

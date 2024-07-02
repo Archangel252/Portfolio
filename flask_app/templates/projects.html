@@ -1,14 +1,28 @@
 {% extends 'shared/layout.html' %}
 
-
 {% block maincontent %}
 <div class="project-page-content">
-      <div class="title-content">
-        <!-- project and description -->
-          <h1>Below is  list of projects I worked on in CSE 477</h1>
-          <p>Click an image, or hyperlink in the description to learn more</p>
+  <div class="title-content">
+    <h1>Below is a list of projects I have developed over the years</h1>
+    <p>Click an image or hyperlink in the description to learn more</p>
+  </div>
+  <div class="projects-list">
+    <div class="project-item">
+      <img src="static/main/images/project1.png" alt="Project 1" class="project-image">
+      <div class="project-description">
+        <h2>Project Title 1</h2>
+        <p>A brief description of Project 1. <a href="link-to-project-1" target="_blank">Learn more</a></p>
       </div>
-      <div>INSERT HERE</div>
-      <p>More Coming Soon...</p>
+    </div>
+    <div class="project-item">
+      <img src="static/main/images/project2.png" alt="Project 2" class="project-image">
+      <div class="project-description">
+        <h2>Project Title 2</h2>
+        <p>A brief description of Project 2. <a href="link-to-project-2" target="_blank">Learn more</a></p>
+      </div>
+    </div>
+    <!-- Add more project items as needed -->
+  </div>
+  <p>More Coming Soon...</p>
 </div>
 {% endblock %}
