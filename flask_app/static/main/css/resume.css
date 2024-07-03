@@ -1,12 +1,45 @@
 main{
     height: 100vh;
+    background-color: #1e1e1e;
 }
 .resume-content{
     padding-left: 15vw;
     padding-right: 15vw;
     height: 100%;
+    background-color: #1e1e1e;
 }
 embed {
     height: 80%;
 
+}
+/* resume.css */
+.resume-content {
+    padding-left: 15vw;
+    padding-right: 15vw;
+    padding-top: 5vh;
+    height: 100%;
+    background-color: #121212;
+}
+
+.resume-iframe {
+    width: 100%;
+    height: 90%;
+    border: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .resume-content {
+        padding: 10px;
+    }
+
+    .resume-iframe {
+        height: 90vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .resume-iframe {
+        height: 80vh;
+    }
 }

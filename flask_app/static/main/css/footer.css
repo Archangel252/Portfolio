@@ -1,10 +1,11 @@
-footer{
-    background-color: gray;
-    height: 15vh;
-    width: 100vw;
-    display: grid;
-    place-items: center;
+footer {
+    text-align: center;
+    background-color: #1e1e1e;
+    border-top: 1px solid #333;
 }
-.footer-tag{
-    margin: 0px;
+
+.footer-tag {
+    margin: 0;
+    color: #eaeaea;
+    font-size: 14px;
 }

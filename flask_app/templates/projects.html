@@ -1,17 +1,45 @@
 {% extends 'shared/layout.html' %}
 
+{% block extracss %}
+<link rel="stylesheet" href="{{ url_for('static', filename='main/css/projects.css') }}">
+{% endblock %}
+  
+{% block extrajs %}
+<script src="{{ url_for('static', filename='main/js/projects.js') }}" defer></script>
+{% endblock %}
 {% block maincontent %}
 <div class="project-page-content">
   <div class="title-content">
     <h1>Below is a list of projects I have developed over the years</h1>
-    <p>Click an image or hyperlink in the description to learn more</p>
+    <p></p>
   </div>
   <div class="projects-list">
     <div class="project-item">
-      <img src="static/main/images/project1.png" alt="Project 1" class="project-image">
+      <img src="static/main/images/SimplifyIT-image.png" alt="SimplifyIT" class="project-image">
       <div class="project-description">
-        <h2>Project Title 1</h2>
-        <p>A brief description of Project 1. <a href="link-to-project-1" target="_blank">Learn more</a></p>
+        <h2>SimplifyIT - AI Jira Ticket Automation Tool</h2>
+        <div class="timeline-date">May 2024 – Present</div>
+        <p>During my tenure at General Motors, I participated in their company-wide hackathon and 
+          completed a project that integrated a basic Flask backend with a straightforward UI designed 
+          as a chat interface. The application utilized LLama3 chat and code models provided for the 
+          hackathon.</p>
+        <p>Users initiated conversations by specifying whether they intended to create a feature or a 
+          defect ticket. The chatbot then generated a corresponding template beside the chat window 
+          and proceeded to ask users questions to populate the template. Some of these questions included
+          things like the application being worked on, instance of the application (cloud, on-prem, etc.) and after receiving responses
+          to these questions, the codebase was queried and fed to the model to improve context and give the AI a look into how the code is written.
+          Once both the chatbot and 
+          user completed filling out the template, it appeared filled out on the screen. The user was 
+          then prompted to click a "Finalize Ticket" button to create the ticket in the Jira dashboard. 
+          The Bot would then create a file of tests cases to ensure the Feature/Defect was implemented correctly.
+        
+          The project won first overall and I was asked to make a production version integrated into Jira itself
+        </p>
+        <div id="video-container">
+          <a href="javascript:void(0);" id="play-button" onclick="loadVideo()">Watch Demo Video</a>
+      </div>
+        
+        <p>GitHub: **Internal to General Motors and cannot be shared**</p>
       </div>
     </div>
     <div class="project-item">

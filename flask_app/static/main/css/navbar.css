@@ -4,35 +4,34 @@ nav {
     justify-content: space-between;
     align-items: center;
     height: 10vh;
-    padding: 0 5vw; /* Adjust padding for spacing */
-    background-color: black;
+    padding-left: 5vw; 
+    background-color: #1e1e1e;
     color: white;
 }
 
-nav a {
+.nav-links a {
     color: white;
     text-decoration: none;
-    padding: 0 10px; /* Add padding for link spacing */
+    margin-left: 2vw; 
+    margin-right: 2vw;
+    font-size: 1.5vw;
 }
 
 nav a:hover {
     opacity: 0.8; /* Adjust opacity on hover */
+    color: black;
 }
 
-.nav-profile-img {
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
-    background-color: #555;
-    margin-right: 20px;
-    background-image: url(../images/profile-pic.jpg);
-    background-size: cover; 
-    background-position: center;
+.social-links a {
+    margin-left: 1vw; 
+    margin-right: 1vw;
 }
 
-#linkedin-img {
-    height: 7vh;
-    width: auto;
+.social-links img {
+    height: 3vw;
+    width: 3vw;
+    object-fit: cover; /* Ensure the images fit within the dimensions without distortion */
+    border-radius: 10%;
 }
 
 .menu-bar-link {
@@ -66,8 +65,14 @@ nav a:hover {
         height: auto;
     }
 
-    nav a {
+    .nav-links a {
         margin: 10px 0;
+    }
+
+    .social-links {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
     }
 
     .menu-bar-link {

@@ -7,13 +7,6 @@ Welcome to my portfolio website! This site showcases my projects, skills, and ex
 - [Introduction](#introduction)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Getting Started](#getting-started)
-- [Usage](#usage)
-- [Screenshots](#screenshots)
-- [Deployment](#deployment)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
 
 ## Introduction
 
@@ -28,6 +21,6 @@ This portfolio website serves as a central hub for presenting my professional ac
 
 ## Technologies Used
 
-- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
-- **Frameworks/Libraries**: Bootstrap, jQuery (optional)
-- **Deployment**: GitHub Pages, Netlify, Vercel, etc. (depending on your chosen platform)
+- **Frontend**: HTML5, CSS3, JavaScript
+- **Frameworks/Libraries**: Flask,
+- **Deployment**: GitHub Pages
