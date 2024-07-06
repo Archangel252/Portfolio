@@ -1,10 +1,9 @@
-/* navbar.css */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 10vh;
-    padding-left: 5vw; 
+    padding-left: 5vw;
     background-color: #1e1e1e;
     color: white;
 }
@@ -12,7 +11,7 @@ nav {
 .nav-links a {
     color: white;
     text-decoration: none;
-    margin-left: 2vw; 
+    margin-left: 2vw;
     margin-right: 2vw;
     font-size: 1.5vw;
 }
@@ -23,7 +22,7 @@ nav a:hover {
 }
 
 .social-links a {
-    margin-left: 1vw; 
+    margin-left: 1vw;
     margin-right: 1vw;
 }
 
@@ -67,12 +66,25 @@ nav a:hover {
 
     .nav-links a {
         margin: 10px 0;
+        font-size: 1.2rem; /* Adjust font size for mobile */
+        margin-left: 1rem; /* Increased margin for mobile */
+        margin-right: 1rem; /* Increased margin for mobile */
     }
 
     .social-links {
         display: flex;
         justify-content: space-between;
         width: 100%;
+    }
+
+    .social-links a {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+
+    .social-links img {
+        height: 2rem; /* Adjust image size for mobile */
+        width: 2rem;
     }
 
     .menu-bar-link {

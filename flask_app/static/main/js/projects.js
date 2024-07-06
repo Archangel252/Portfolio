@@ -1,4 +1,8 @@
-function loadVideo(path,id) {
+function loadVideo(path, id) {
     var videoContainer = document.getElementById(id);
-    videoContainer.innerHTML = `<iframe width="560" height="315" src=${path} frameborder="0" allowfullscreen></iframe>`;
+    videoContainer.innerHTML = `
+        <div class="responsive-iframe-container">
+            <iframe src="${path}" frameborder="0" allowfullscreen></iframe>
+        </div>
+    `;
 }
