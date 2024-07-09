@@ -18,7 +18,7 @@ COPY . .
 # ENV FLASK_RUN_HOST=0.0.0.0
 
 # Expose the port that the Flask app runs on
-EXPOSE 8080
+EXPOSE 443
 
 # Command to run the Flask application
 CMD ["python", "app.py"]

@@ -12,7 +12,7 @@ services:
     stdin_open: true
     tty: true
     ports:
-      - "8080:8080"
+      - "443:443"
     # Mounts the local directory to docker container as a volume.
     volumes:
       - .:/app
