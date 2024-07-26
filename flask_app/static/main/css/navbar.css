@@ -62,10 +62,16 @@ nav a:hover {
         flex-direction: column;
         align-items: flex-start;
         height: auto;
+        align-items: center;
     }
 
+    .nav-links{
+        display: flex;
+        justify-content: space-between;
+        width: 60%;
+    }
     .nav-links a {
-        margin: 10px 0;
+        margin: 5px 0;
         font-size: 1.2rem; /* Adjust font size for mobile */
         margin-left: 1rem; /* Increased margin for mobile */
         margin-right: 1rem; /* Increased margin for mobile */
@@ -74,12 +80,17 @@ nav a:hover {
     .social-links {
         display: flex;
         justify-content: space-between;
-        width: 100%;
+        width: 30%;
+        order: -1;
+    }
+
+    h3 {
+        order: -1;
     }
 
     .social-links a {
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
+        margin-left: 0.2rem;
+        margin-right: 0.2rem;
     }
 
     .social-links img {
@@ -91,16 +102,4 @@ nav a:hover {
         display: block;
     }
 
-    .dropdown {
-        position: static;
-        max-height: none;
-        overflow: visible;
-        background-color: transparent;
-        width: auto;
-        display: none;
-    }
-
-    .dropdown.active {
-        display: block;
-    }
 }
