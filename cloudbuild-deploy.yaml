@@ -1,0 +1,42 @@
+steps:
+  # Step 1: Build the Docker image for the Flask app
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-f'
+      - 'Dockerfile'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/portfolio_flask-app'
+      - '.'
+
+  # Step 2: Push the Docker image to Google Container Registry (GCR)
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'gcr.io/$PROJECT_ID/portfolio_flask-app'
+
+  # Step 3: Deploy to Google Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'gcloud'
+    args:
+      - 'run'
+      - 'deploy'
+      - 'portfolio-flask-app'
+      - '--image'
+      - 'gcr.io/$PROJECT_ID/portfolio_flask-app'
+      - '--platform'
+      - 'managed'
+      - '--region'
+      - 'us-central1'  # Optional: specify the region for Cloud Run
+
+# Logging and Options
+options:
+  logging: CLOUD_LOGGING_ONLY  # Logs will be sent only to Google Cloud Logging
+
+# Substitutions
+substitutions:
+  _FLASK_APP_IMAGE: 'gcr.io/$PROJECT_ID/portfolio_flask-app'
+
+# Specify the images to be stored in Google Container Registry
+images:
+  - 'gcr.io/$PROJECT_ID/portfolio_flask-app'
