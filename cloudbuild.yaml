@@ -12,11 +12,8 @@ steps:
   #   args: ['run', 'gcr.io/$PROJECT_ID/portfolio_flask-app']
 
 # Logging and Options
-logsBucket: gs://my-build-logs-bucket  # Replace with your actual logs bucket name
 options:
   logging: CLOUD_LOGGING_ONLY  # Logs will be sent only to Google Cloud Logging
-  # Uncomment if you want to use a regional user-owned bucket
-  # defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
 
 # Substitutions (optional)
 substitutions:
@@ -25,6 +22,7 @@ substitutions:
 # Specify the images to be stored in Google Container Registry
 images:
   - 'gcr.io/$PROJECT_ID/portfolio_flask-app'
+
 
 
 
