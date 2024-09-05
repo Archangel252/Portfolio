@@ -1,15 +1,27 @@
 steps:
-  # Step 1: Build the container image
-  - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['builds', 'submit', '--tag', 'gcr.io/portfolio-428612/portfolio_flask-app']
+  # Step 1: Build the Docker image for the Flask app
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-f', 'Dockerfile', '-t', 'gcr.io/$PROJECT_ID/portfolio_flask-app', '.']
 
-  # Step 2: Deploy to Cloud Run
-  - name: 'gcr.io/cloud-builders/gcloud'
-    args:
-      - 'run'
-      - 'deploy'
-      - 'portfolio-flask-app'
-      - '--image'
-      - 'gcr.io/portfolio-428612/portfolio_flask-app'
-      - '--platform'
-      - 'managed'
+  # Step 2: Push the Docker image to Google Container Registry (GCR)
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/portfolio_flask-app']
+
+  # Step 3: Deploy the Docker Compose stack (optional, depending on your deployment strategy)
+  # Uncomment the following lines if you want to deploy using Docker Compose on a VM or GKE
+  # - name: 'gcr.io/cloud-builders/docker'
+  #   args: ['run', 'gcr.io/$PROJECT_ID/portfolio_flask-app']
+
+# Substitutions (optional, but useful for dynamic values)
+substitutions:
+  _FLASK_APP_IMAGE: 'gcr.io/$PROJECT_ID/portfolio_flask-app'
+
+# Specify the images to be stored in Google Container Registry
+images:
+  - 'gcr.io/$PROJECT_ID/portfolio_flask-app'
+
+
+# powershell -ExecutionPolicy Bypass -Command "gcloud builds submit --config cloudbuild.yaml ."
+# gcloud builds submit --tag gcr.io/portfolio-428612/portfolio_flask-app
+# gcloud run deploy portfolio-flask-app --image gcr.io/portfolio-428612/portfolio_flask-app --platform managed
+
